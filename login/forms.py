@@ -1,5 +1,6 @@
 from django import forms
 from .models import User
+<<<<<<< HEAD
 from django.forms import ModelForm
 
 class UserForm(ModelForm):
@@ -51,4 +52,5 @@ class LoginForm(ModelForm):
     class Meta:
         model=User
         fields=['email','password']
+
 
