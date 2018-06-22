@@ -1,4 +1,4 @@
 Django==2.0.6
 passlib==1.7.1
 pipenv==2018.5.18
-gunicorn=19.8.1
+gunicorn==19.8.1
