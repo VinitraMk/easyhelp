@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import View
 from .models import User as UserModel
 from .forms import UserForm
+import requests
 # Create your views here.
 
 class Users(View):
@@ -30,3 +31,7 @@ class Users(View):
             return HttpResponseRedirect('/login/')
 
 
+def index(request):
+        r = requests.get('http://httpbin.org/status/418')
+        print(r.text)
+        return HttpResponse('<pre>' + r.text + '</pre>')

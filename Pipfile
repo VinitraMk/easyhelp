@@ -1,0 +1,14 @@
+[[source]]
+verify_ssl = true
+url = "https://pypi.org/simple"
+name = "pypi"
+
+[requires]
+python_version = "3.5"
+
+[packages]
+pipenv = "==2018.5.18"
+Django = "==2.0.6"
+requests = "*"
+
+[dev-packages]
