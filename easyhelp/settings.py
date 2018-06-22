@@ -25,7 +25,8 @@ SECRET_KEY = '9(k1ly^f7s#h-!6*h9jp-stse!p=$-)$=#^5^m#b6ny1z^%#(%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['easysol.herokuapp.com']
+ALLOWED_HOSTS = ['easysol.herokuapp.com',
+        '127.0.0.1']
 
 
 # Application definition

@@ -1,6 +1,5 @@
 from django import forms
 from .models import User
-<<<<<<< HEAD
 from django.forms import ModelForm
 
 class UserForm(ModelForm):
