@@ -12,5 +12,6 @@ Django = "==2.0.6"
 requests = "*"
 gunicorn = "==19.8.1"
 passlib = "==1.7.1"
+whitenoise = "*"
 
 [dev-packages]
