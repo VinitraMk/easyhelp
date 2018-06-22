@@ -19,4 +19,5 @@ import login.views as UserViews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/',UserViews.Users.as_view()),
+    url('',include('login.urls',namespace='index'))
 ]

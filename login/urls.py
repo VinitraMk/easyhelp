@@ -1,9 +1,7 @@
 from django.conf.urls import url
 
-'''from . import views
+from . import views
 app_name='login'
 urlpatterns=[
-        url('^$',views.login,name='login'),
-        url('^$',views.add,name='add'),
+        url('^$',views.index,name='index'),
         ]
-        '''
