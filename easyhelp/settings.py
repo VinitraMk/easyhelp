@@ -134,6 +134,7 @@ else:
         #print('DATABASE_URL',db_config)
         DATABASES['default']=db_config
         DATABASES['default']['ENGINE']='django.db.backends.postgresql'
+        DATABASES.pop('CONN_MAX_AGE',None)
         print(DATABASES['default']) 
 
 # Password validation
