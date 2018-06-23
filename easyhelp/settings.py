@@ -129,7 +129,7 @@ if herk==False:
     }
 
 else:
-    db_config=dj_database_url.config(default=DATABASE_URL)
+    db_config=dj_database_url.config()
     if db_config:
         #print('DATABASE_URL',db_config)
         DATABASES['default']=db_config
