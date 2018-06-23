@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'easyhelp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
+DATABASES = {}
 db_config=dj_database_url.config()
 if db_config:
     #print('DATABASE_URL',db_config)
