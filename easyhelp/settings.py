@@ -96,24 +96,22 @@ WSGI_APPLICATION = 'easyhelp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-DATABASES = {}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'postgres',
+        'USER':'killua',
+        'PASSWORD':'killua',
+        'HOST':'127.0.0.1',
+        'PORT':'5432',
+    }
+}
+
 db_config=dj_database_url.config()
 if db_config:
     #print('DATABASE_URL',db_config)
     DATABASES['default']=db_config
-
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME':'postgres',
-            'USER':'killua',
-            'PASSWORD':'killua',
-            'HOST':'127.0.0.1',
-            'PORT':'5432',
-        }
-    }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
