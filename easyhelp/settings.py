@@ -111,6 +111,7 @@ db_config=dj_database_url.config()
 if db_config:
     #print('DATABASE_URL',db_config)
     DATABASES['default']=db_config
+    print(DATABASES['default'])
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
