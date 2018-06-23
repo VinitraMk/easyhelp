@@ -129,11 +129,11 @@ if herk==False:
     }
 
 else:
-    db_config=dj_database_url.config()
+    db_config=dj_database_url.config(default='postgres://user:pass@localhost/dbname')
     if db_config:
         #print('DATABASE_URL',db_config)
         DATABASES['default']=db_config
-        DATABASES['default']['ENGINE']='django.db.backends.postgresql'
+        DATABASES['default']['ENGINE']='django_postgrespool'
         print(DATABASES['default']) 
 
 # Password validation
