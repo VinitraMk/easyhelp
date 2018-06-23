@@ -111,7 +111,7 @@ DATABASES = {
 '''
 
 herk=False
-#Works only on heroku local
+#Works in both
 if 'DYNO' in os.environ:
     herk=True
 else:
@@ -135,7 +135,7 @@ else:
         DATABASES['default']=db_config
         DATABASES['default']['ENGINE']='django.db.backends.postgresql'
         DATABASES.pop('CONN_MAX_AGE',None)
-        print(DATABASES['default']) 
+        #print(DATABASES['default']) 
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
