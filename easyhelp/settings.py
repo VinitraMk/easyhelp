@@ -110,17 +110,10 @@ else:
             'NAME':'postgres',
             'USER':'killua',
             'PASSWORD':'killua',
-            'HOST':'localhost',
+            'HOST':'',
             'PORT':'5432',
         }
     }
-
-'''DATABASES = {
-        'default': {
-            'ENGINE':'django.db.backends.sqlite3',
-            'NAME':os.path.join(BASE_DIR,'db.sqlite3'),
-        }
-}'''
 
 
 # Password validation
