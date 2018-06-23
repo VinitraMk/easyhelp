@@ -133,6 +133,7 @@ else:
     if db_config:
         #print('DATABASE_URL',db_config)
         DATABASES['default']=db_config
+        DATABASES['default']['ENGINE']='django.db.backends.postgreqsql'
         print(DATABASES['default']) 
 
 # Password validation
