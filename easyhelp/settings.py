@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -96,16 +97,23 @@ WSGI_APPLICATION = 'easyhelp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'de97qlbhjdf5ed',
-        'USER':'iibzanaqftcsti',
-        'PASSWORD':'ffb133470bd2dbff02480e6931e9f25f44c4e9ce7af0c727dd9d318976b231c9',
-        'HOST':'ec2-54-83-0-158.compute-1.amazonaws.com',
+        'NAME':'postgres',
+        'USER':'killua',
+        'PASSWORD':'killua',
+        'HOST':'localhost',
         'PORT':'5432',
     }
 }
+
+db_config=dj_database_url.config()
+if db_config:
+    print('DATABASE_URL',db_config)
+    DATABASES['default']=db_config
+
 '''DATABASES = {
         'default': {
             'ENGINE':'django.db.backends.sqlite3',
