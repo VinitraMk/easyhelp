@@ -1,1 +1,1 @@
-web: gunicorn --log-file=- easyhelp.wsgi:application
+web: gunicorn easyhelp.wsgi --log-file -
