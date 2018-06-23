@@ -103,14 +103,13 @@ if db_config:
     DATABASES['default']=db_config
 
 else:
-
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME':'postgres',
             'USER':'killua',
             'PASSWORD':'killua',
-            'HOST':'',
+            'HOST':'127.0.0.1',
             'PORT':'5432',
         }
     }
