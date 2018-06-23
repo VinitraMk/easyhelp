@@ -25,10 +25,10 @@ SECRET_KEY = '9(k1ly^f7s#h-!6*h9jp-stse!p=$-)$=#^5^m#b6ny1z^%#(%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-'''ALLOWED_HOSTS = ['easysol.herokuapp.com',
-        '127.0.0.1',
-        '0.0.0.0']'''
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['easysol.herokuapp.com',
+        'localhost',
+        '0.0.0.0']
+#ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -103,7 +103,6 @@ DATABASES = {
         'NAME':'postgres',
         'USER':'killua',
         'PASSWORD':'killua',
-        'HOST':'127.0.0.1',
         'PORT':'5432',
     }
 }
