@@ -122,7 +122,11 @@ class ReadMore(View):
         for rv in revobj:
             c+=rv.rating
             i=i+1
-        avg=c/i
+        avg=0
+        if i>0:
+            avg=c/i
+        else:
+            avg=0
         revs=revobj[:3]
         return render(request,self.template_name,{'singser':singser,'revobjs':revs,'rating':avg})
 
