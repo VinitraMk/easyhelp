@@ -117,8 +117,14 @@ class ReadMore(View):
             request.session['ownerid']=values.owneremail
             request.session['sertype']=temp
         revobj=ReviewRate.objects.filter(serviceid=data).all()
+        c=0
+        i=0
+        for rv in revobj:
+            c+=rv.rating
+            i=i+1
+        avg=c/i
         revs=revobj[:3]
-        return render(request,self.template_name,{'singser':singser,'revobjs':revs})
+        return render(request,self.template_name,{'singser':singser,'revobjs':revs,'rating':avg})
 
 
 class Filter(View):
