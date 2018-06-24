@@ -19,3 +19,9 @@ class Service(models.Model):
 class Choice(models.Model):
     iden=models.IntegerField()
     sertype=models.CharField(max_length=50)
+
+class ReviewRate(models.Model):
+    serviceid=models.CharField(max_length=15)
+    usermail=models.CharField(max_length=15)
+    rating=models.IntegerField(default=0)
+    review=models.CharField(max_length=500)

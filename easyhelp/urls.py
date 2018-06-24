@@ -41,5 +41,7 @@ urlpatterns = [
     url(r'^getanswers/id=[0-9]+$',ForumViews.Answer.as_view()),
     url(r'^askquery/id=[0-9]+$',ForumViews.AskQuery.as_view()),
     url(r'^ansquery/id=[0-9]+$',ForumViews.AnsQuery.as_view()),
+    url(r'^addreview/',include('service.urls')),
+    url(r'^morereviews/id=[0-9]+$',ServiceViews.MoreReview.as_view()),
 ]
 

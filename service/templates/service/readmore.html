@@ -93,18 +93,67 @@
               Service Reviews
             </div>
             <div class="card-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-              <hr>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-              <hr>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-              <hr>
+            {% for revobj in revobjs %}
+                <p>{{revobj.review}}</p>
+                <small class="text-muted">Posted by {{revobj.usermail}}</small>
+                  <hr>
+             {% endfor %}
               {% if request.session.noquery %}
               {% else %}
-                  <a href="#" class="btn btn-success">Leave a Review</a>
+					<div class="container">
+            	    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Leave A Review</button>
+                    <a href="/morereviews/id={{request.session.serid}}"><button type="button" class="btn btn-success" style="float:right;">More Reviews ..</button></a>
+					  <div class="modal" id="myModal">
+						<div class="modal-dialog">
+						  <div class="modal-content">
+						  
+							<!-- Modal Header -->
+							<div class="modal-header">
+                                <h4 class="modal-title">Review and Rate</h4>
+							  <button type="button" class="close" data-dismiss="modal">&times;</button>
+							</div>
+				
+							<!-- Modal body -->
+							<div class="modal-body">
+							  <!-- Contact Form -->
+						  <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+                          <form action="/addreview/" method="post">
+                              {% csrf_token %}
+						  <div class="row">
+							<div class="col-lg-8 mb-4">
+                                <div class="control-group form-group">
+								  <div class="controls">
+									<label>Review:</label>
+									<textarea rows="10" cols="100" class="form-control" name="review" required maxlength="500" style="resize:none"></textarea>
+								  </div>
+								</div>
+                                <div class="form-group">
+                                  <label for="sel1">Rating</label>
+                                    <select class="form-control" id="rating" name="rating">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+								<div id="success"></div>
+                                <button type="submit" class="btn btn-success">Submit Review</button>
+							</div>
+						  </div>
+							</div>
+				
+							<!-- Modal footer -->
+							<div class="modal-footer">
+							  <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+							</div>
+                            </form>
+						  </div>
+						</div>
+					  </div>
+					  
+					</div>
               {% endif %}
             </div>
           </div>

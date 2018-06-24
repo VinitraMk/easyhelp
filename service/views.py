@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Service as ServiceModel
 from .models import Choice as ChoiceModel
+from .models import ReviewRate
 from .forms import ServiceForm,UpdateServiceForm
 from django.views.generic import View
 import time,datetime
@@ -59,7 +60,7 @@ class ServiceInfo(View):
                 'description':singser.description,'seraddr':singser.seraddr,'servicemail':singser.servicemail,
                 'servicephone':singser.servicephone,'websiteurl':singser.websiteurl,
                 'serviceid':data}
-        request.session.set_expiry(7200)
+        request.session.set_expiry(86400)
         request.session['serupd']=True
         request.session['serid']=data
         request.session['ownerid']=singser.owneremail
@@ -115,7 +116,9 @@ class ReadMore(View):
             request.session['serid']=data
             request.session['ownerid']=values.owneremail
             request.session['sertype']=temp
-        return render(request,self.template_name,{'singser':singser})
+        revobj=ReviewRate.objects.filter(serviceid=data).all()
+        revs=revobj[:3]
+        return render(request,self.template_name,{'singser':singser,'revobjs':revs})
 
 
 class Filter(View):
@@ -126,4 +129,26 @@ class Filter(View):
         ch=ChoiceModel.objects.get(iden=data).sertype
         serobj=ServiceModel.objects.filter(typeofservice=ch).all()
         return render(request,self.template_name,{'serobj':serobj,'filter':ch})
+
+class MoreReview(View):
+    template_name='service/morereviews.html'
+
+    def get(self,request):
+        data=request.get_full_path()
+        data=data[-14:]
+        revobjs=ReviewRate.objects.filter(serviceid=data).all()
+        return render(request,self.template_name,{'revobjs':revobjs})
+
+def submitreview(request):
+    usermail=request.session.get("uemail",None)
+    serid=request.session.get("serid",None)
+    if request.method=="POST":
+        if usermail==None or serid==None:
+            return render(request,'home/error.html',{'main_error':'User has logged out'})
+        rating=request.POST['rating']
+        review=request.POST['review']
+        revobj=ReviewRate(serviceid=serid,usermail=usermail,rating=rating,review=review)
+        revobj.save()
+        url='/readmore/id='+serid
+        return redirect(url)
 
