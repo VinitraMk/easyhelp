@@ -6,8 +6,6 @@ from .forms import UserForm,LoginForm
 from django.contrib import messages 
 from django.contrib.auth.hashers import make_password
 from passlib.hash import pbkdf2_sha256
-
-
 # Create your views here.
 
 class Register(View):
