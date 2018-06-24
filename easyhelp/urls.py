@@ -28,5 +28,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^addservice/',ServiceViews.Service.as_view()),
     url(r'^profile/',UserViews.Profile.as_view()),
+    url(r'^yourservices/',ServiceViews.YourServices.as_view()),
+    url(r'^updateservice/',ServiceViews.ServiceInfo.as_view()),
+    url(r'^updateservice/id=[0-9]+$',ServiceViews.ServiceInfo.as_view()),
+    url(r'^allservices/',ServiceViews.AllServices.as_view()),
+    url(r'^readmore/id=[0-9]+$',ServiceViews.ReadMore.as_view()),
 ]
 

@@ -37,29 +37,29 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <h2>Publish Your Business</h2> 
-                    <p> Enter the mandatory details to publish your service/business </p>
+                    <p>* stands of mandatory fields. </p>
                     <form method="POST" action="/addservice/">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-sm-6 form-group">
-                                <label for="name"> Service/Business Name:</label>
+                                <label for="name"> Service/Business Name: *</label>
                                 {{form_user.nameofservice}}
                                 <!--<input type="text" class="form-control" id="firstname" name="firstname" maxlength="50">-->
                             </div>
                             <div class="col-sm-6 form-group">
-                                <label for="name"> Start Date:</label>
+                                <label for="name"> Start Date: *</label>
                                 {{form_user.startdate}}
                                 <!--<input type="text" class="form-control" id="lastname" name="lastname" maxlength="50">-->
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 form-group">
-                                <label for="email"> Type of Service:</label>
+                                <label for="email"> Type of Service: *</label>
                                 {{form_user.typeofservice}}
                                 <!--<input type="text" class="form-control" id="email" name="email" maxlength="50">-->
                             </div>
                             <div class="col-sm-6 form-group">
-                                <label for="email"> Business Email:</label>
+                                <label for="email"> Business Email: </label>
                                 {{form_user.servicemail}}
                             </div>
                         </div>
@@ -85,7 +85,7 @@
 
                         <div class="row">
                             <div class="col-sm-12 form-group">
-                                <label for="name"> Description:</label>
+                                <label for="name"> Description: *</label>
                                 <!--
                                 <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Your Message Here" maxlength="6000" rows="7"></textarea>
                                 --> 
