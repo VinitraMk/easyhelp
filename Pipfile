@@ -15,5 +15,6 @@ passlib = "==1.7.1"
 whitenoise = "*"
 "psycopg2" = "*"
 dj-database-url = "*"
+django-bootstrap-datepicker-plus = "*"
 
 [dev-packages]

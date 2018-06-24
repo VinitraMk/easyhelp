@@ -17,11 +17,16 @@ from django.contrib import admin
 from django.conf.urls import include,url
 import login.views as UserViews
 import home.views as HomeViews
+import service.views as ServiceViews
 urlpatterns = [
     url('',include('home.urls')),
+    url(r'^error',HomeViews.Error.as_view()),
+    url(r'^logout',UserViews.Logout.as_view()),
     url(r'^about/',HomeViews.About.as_view()),
     url(r'^register/',UserViews.Register.as_view()),
     url(r'^login/',UserViews.Login.as_view()),
     url(r'^admin/', admin.site.urls),
+    url(r'^addservice/',ServiceViews.Service.as_view()),
+    url(r'^profile/',UserViews.Profile.as_view()),
 ]
 

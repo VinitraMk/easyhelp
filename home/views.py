@@ -9,3 +9,9 @@ class About(View):
 
     def get(self,request):
         return render(request,self.template_name,{})
+
+class Error(View):
+    template_name='home/error.html'
+
+    def get(self,request):
+        return render(request,self.template_name,{})

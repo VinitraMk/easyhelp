@@ -50,7 +50,7 @@ class Login(View):
             #existing_user=UserModel.objects.filter(email=login_user.cleaned_data.get('email')).first()
             existing_user=UserModel.objects.get(email=uname)
             if existing_user and pbkdf2_sha256.verify(pwd,existing_user.password):
-                print('Existing user',existing_user.name)
+                #print('Existing user',existing_user.name)
                 request.session.set_expiry(86400)
                 request.session['logged']=True
                 request.session['uname']=existing_user.name
@@ -61,3 +61,18 @@ class Login(View):
                 #request.session['error']='Invalid username or password'
                 return render(request,self.template_name,{'form_user':form_user,'error':'User does not exist!'})
 
+
+class Logout(View):
+    def get(self,request):
+        request.session['logged']=False
+        return redirect('/')
+
+
+
+class Profile(View):
+    template_name='login/index.html'
+    def get(self,request):
+        email=request.session['uemail']
+        existing_user=UserModel.objects.get(email=email)
+        return render(request,self.template_name,{'user_name':existing_user.name,'user_email':existing_user.email})
+    

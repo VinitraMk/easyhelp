@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['easysol.herokuapp.com',
         'localhost',
-        '0.0.0.0']
+        '0.0.0.0',
+        '127.0.0.1']
 #ALLOWED_HOSTS = ['*']
 
 
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'login',
+    'service',
 ]
 
 MIDDLEWARE = [

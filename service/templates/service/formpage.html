@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>A Reusable Contact Form In Bootstrap - reusable form</title>
+        
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+        <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-darkness/jquery-ui.css" rel = "stylesheet">
+        <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <!-- Optional theme 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >-->
+
+
+
+        <link rel="stylesheet" href="{% static 'service/css/form.css' %}" >
+        <!--<script src="form.js"></script>-->
+
+        <script>
+            $(function() {
+                $("#datepicker").datepicker({
+                    yearRange:"1970:2025"
+                });
+                $("#datepicker").datepicker("show");
+            });
+        </script>
+
+                
+    </head>
+    <body >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h2>Publish Your Business</h2> 
+                    <p> Enter the mandatory details to publish your service/business </p>
+                    <form method="POST" action="/addservice/">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <label for="name"> Service/Business Name:</label>
+                                {{form_user.nameofservice}}
+                                <!--<input type="text" class="form-control" id="firstname" name="firstname" maxlength="50">-->
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label for="name"> Start Date:</label>
+                                {{form_user.startdate}}
+                                <!--<input type="text" class="form-control" id="lastname" name="lastname" maxlength="50">-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <label for="email"> Type of Service:</label>
+                                {{form_user.typeofservice}}
+                                <!--<input type="text" class="form-control" id="email" name="email" maxlength="50">-->
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label for="email"> Business Email:</label>
+                                {{form_user.servicemail}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <label for="email"> Business Phone:</label>
+                                {{form_user.servicephone}}
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label for="email"> Website Url:</label>
+                                {{form_user.websiteurl}}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label for="name"> Business Address:</label></br>
+                                {{form_user.seraddr}}
+                                <!--<input type="text" class="form-control" id="email" name="email" maxlength="248">-->
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label for="name"> Description:</label>
+                                <!--
+                                <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Your Message Here" maxlength="6000" rows="7"></textarea>
+                                --> 
+                                {{form_user.description}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <button type="submit" class="btn btn-lg btn-block" id="btnContactUs">Post It! </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
