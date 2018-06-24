@@ -8,7 +8,7 @@ class ServiceForm(ModelForm):
             (3,'Legal'),
             (4,'Tax'),
             (5,'Marketing'),
-            (6,'Web Design'),
+            (6,'Web Designing'),
             (7,'Writing & Translation'),
             (8,'Design & Multimedia'),
             (9,'Home Decor'),

@@ -79,7 +79,10 @@ class Logout(View):
 class Profile(View):
     template_name='login/index.html'
     def get(self,request):
-        email=request.session['uemail']
-        existing_user=UserModel.objects.get(email=email)
-        return render(request,self.template_name,{'user_name':existing_user.name,'user_email':existing_user.email})
+        if request.session.get('uemail',None)==None:
+            return render(request,'home/error.html',{'main_error':'User has logged out'})
+        else:
+            email=request.session['uemail']
+            existing_user=UserModel.objects.get(email=email)
+            return render(request,self.template_name,{'user_name':existing_user.name,'user_email':existing_user.email})
     
