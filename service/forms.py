@@ -3,17 +3,17 @@ from .models import Service
 from django import forms
 class ServiceForm(ModelForm):
     SERVICE_CHOICES = [
-            (1,'Accounting'),
-            (2,'Consulting'),
-            (3,'Legal'),
-            (4,'Tax'),
-            (5,'Marketing'),
-            (6,'Web Designing'),
-            (7,'Writing & Translation'),
-            (8,'Design & Multimedia'),
-            (9,'Home Decor'),
-            (10,'Event Planner'),
-            (11,'Other'),
+            ('Accounting','Accounting'),
+            ('Consulting','Consulting'),
+            ('Legal','Legal'),
+            ('Tax','Tax'),
+            ('Marketing','Marketing'),
+            ('Web Designing','Web Designing'),
+            ('Writing and Translation','Writing & Translation'),
+            ('Design and Multimedia','Design & Multimedia'),
+            ('Home Decor','Home Decor'),
+            ('Event Planner','Event Planner'),
+            ('Other','Other'),
             ]
 
     typeofservice=forms.ChoiceField(

@@ -53,8 +53,24 @@
               <label>Service Email</label>
               <a href="" class="list-group-item">{{singser.servicemail}}</a></br>
               <label>Website</label>
-              <a href="" class="list-group-item">{{singser.websiteurl}}</a>
-          </div>
+              <a href="" class="list-group-item">{{singser.websiteurl}}</a></br>
+              <!--<a href="/askquery/id={{request.session.serid}}"><button type="button" class="btn btn-success">Ask a Query</button></a>-->
+                {% if request.session.noquery %}
+                {% else %}
+                  <label><strong>Ask your Query</strong></label>
+                  <form method="post" action="/askquery/id={{request.session.serid}}">
+                      {% csrf_token %}
+                    
+                    <div class="control-group form-group">
+                      <div class="controls">
+                        <textarea rows="10" cols="100" class="form-control" maxlength="500" style="resize:none" name="query"></textarea>
+                      </div>
+                    </div>
+                    <div id="success"></div>
+                    <button type="submit" class="btn btn-success" id="sendMessageButton">Submit Query</button>
+                  </form>
+                {% endif %}
+            </div>
         </div>
         <!-- /.col-lg-3 -->
 
@@ -86,7 +102,10 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
               <small class="text-muted">Posted by Anonymous on 3/1/17</small>
               <hr>
-              <a href="#" class="btn btn-success">Leave a Review</a>
+              {% if request.session.noquery %}
+              {% else %}
+                  <a href="#" class="btn btn-success">Leave a Review</a>
+              {% endif %}
             </div>
           </div>
           <!-- /.card -->

@@ -26,16 +26,30 @@
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="/yourservices/">All Services</a>
+        <a class="navbar-brand" href="/allservices/">All Services</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-              <!--
-            <li class="nav-item">
-                <a class="nav-link" href="/profile/">Profile</a>
-            </li>-->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Type of Service
+                </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                <a class="dropdown-item" href="/filterser/1">Accounting</a>
+                <a class="dropdown-item" href="/filterser/2">Consulting</a>
+                <a class="dropdown-item" href="/filterser/3">Legal</a>
+                <a class="dropdown-item" href="/filterser/4">Tax</a>
+                <a class="dropdown-item" href="/filterser/5">Marketing</a>
+                <a class="dropdown-item" href="/filterser/6">Web Designing</a>
+                <a class="dropdown-item" href="/filterser/7">Writing and Translation</a>
+                <a class="dropdown-item" href="/filterser/8">Design and Multipedia</a>
+                <a class="dropdown-item" href="/filterser/9">Home Decor</a>
+                <a class="dropdown-item" href="/filterser/10">Event Planner</a>
+                <a class="dropdown-item" href="/filterser/11">Other</a>
+              </div>
+            </li>
 			<li class="nav-item">
             <a class="nav-link" href="/">
                 <i class="fa fa-fw fa-home"></i>Home</a>
@@ -54,7 +68,7 @@
     <!-- Page Content -->
     <div class="container">
 
-        <h1 class="my-4">Services</h1>
+        <h1 class="my-4">{{filter}} Services</h1>
 
       <!-- Marketing Icons Section -->
       <div class="row">

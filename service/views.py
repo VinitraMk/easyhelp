@@ -4,7 +4,7 @@ from .models import Choice as ChoiceModel
 from .forms import ServiceForm,UpdateServiceForm
 from django.views.generic import View
 import time,datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 # Create your views here.
 
 class Service(View):
@@ -57,10 +57,13 @@ class ServiceInfo(View):
         singser=ServiceModel.objects.filter(serviceid=data).first()
         values={'nameofservice':singser.nameofservice,'typeofservice':singser.typeofservice,'startdate':singser.startdate,
                 'description':singser.description,'seraddr':singser.seraddr,'servicemail':singser.servicemail,
-                'servicephone':singser.servicephone,'websiteurl':singser.websiteurl}
+                'servicephone':singser.servicephone,'websiteurl':singser.websiteurl,
+                'serviceid':data}
         request.session.set_expiry(3600)
         request.session['serupd']=True
         request.session['serid']=data
+        request.session['ownerid']=singser.owneremail
+        request.session['sertype']=singser.typeofservice
         form_user=UpdateServiceForm(values)
         return render(request,self.template_name,{'singser':singser,'form_user':form_user})
 
@@ -96,15 +99,31 @@ class ReadMore(View):
         data=data[-14:]
         values=ServiceModel.objects.filter(serviceid=data).first()
         temp=values.typeofservice
-        ind=ChoiceModel.objects.get(iden=temp).sertype
-        singser={'nameofservice':values.nameofservice,'typeofservice':ind,'startdate':values.startdate,
+        #ind=ChoiceModel.objects.get(iden=temp).sertype
+        singser={'nameofservice':values.nameofservice,'typeofservice':temp,'startdate':values.startdate,
                 'description':values.description,'seraddr':values.seraddr,'servicemail':values.servicemail,
                 'servicephone':values.servicephone,'websiteurl':values.websiteurl,
                 'reviewcount':values.reviewcount,'avgrating':values.avgrating,
                 'owneremail':values.owneremail}
-        request.session.set_expiry(3600)
-        request.session['serupd']=True
-        request.session['serid']=data
+        request.session.set_expiry(7202)
+        user=request.session.get('uemail',None)
+        if user!=None and user==values.owneremail:
+            request.session['noquery']=True
+        else:
+            request.session['noquery']=False
+            request.session['serupd']=True
+            request.session['serid']=data
+            request.session['ownerid']=values.owneremail
+            request.session['sertype']=temp
         return render(request,self.template_name,{'singser':singser})
 
+
+class Filter(View):
+    template_name='service/allservices.html'
+
+    def get(self,request):
+        data=int(request.get_full_path().split('/')[-1])
+        ch=ChoiceModel.objects.get(iden=data).sertype
+        serobj=ServiceModel.objects.filter(typeofservice=ch).all()
+        return render(request,self.template_name,{'serobj':serobj,'filter':ch})
 

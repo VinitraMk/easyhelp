@@ -35,5 +35,7 @@ urlpatterns = [
     url(r'^allservices/',ServiceViews.AllServices.as_view()),
     url(r'^readmore/id=[0-9]+$',ServiceViews.ReadMore.as_view()),
     url(r'^forum/',ForumViews.Forum.as_view()),
+    url(r'^filterser/[0-9]+$',ServiceViews.Filter.as_view()),
+    url(r'^askquery/id=[0-9]+$',include('forum.urls',namespace='query')),
 ]
 

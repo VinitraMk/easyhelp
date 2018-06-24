@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Modern Business - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'forum/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'forum/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'forum/css/modern-business.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+   
+
+
+<!-- Contact Form -->
+      <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+	<div class="container">
+      <div class="row">
+        <div class="col-lg-8 mb-4">
+          <h3>Ask your Query</h3></br>
+          <form method="post" action="">
+            
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Question:</label>
+                <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+              </div>
+            </div>
+            <div id="success"></div>
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit Query</button>
+          </form>
+        </div>
+
+      </div>
+      <!-- /.row -->
+    </div>
