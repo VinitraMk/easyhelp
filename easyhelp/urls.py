@@ -19,6 +19,7 @@ import login.views as UserViews
 import home.views as HomeViews
 import service.views as ServiceViews
 import forum.views as ForumViews
+
 urlpatterns = [
     url('',include('home.urls')),
     url(r'^error',HomeViews.Error.as_view()),
@@ -36,6 +37,9 @@ urlpatterns = [
     url(r'^readmore/id=[0-9]+$',ServiceViews.ReadMore.as_view()),
     url(r'^forum/',ForumViews.Forum.as_view()),
     url(r'^filterser/[0-9]+$',ServiceViews.Filter.as_view()),
-    url(r'^askquery/id=[0-9]+$',include('forum.urls',namespace='query')),
+    url(r'^filterqn/[0-9]+$',ForumViews.Filter.as_view()),
+    url(r'^getanswers/id=[0-9]+$',ForumViews.Answer.as_view()),
+    url(r'^askquery/id=[0-9]+$',ForumViews.AskQuery.as_view()),
+    url(r'^ansquery/id=[0-9]+$',ForumViews.AnsQuery.as_view()),
 ]
 

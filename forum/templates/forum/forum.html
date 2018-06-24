@@ -25,7 +25,7 @@
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="">EasyHelp</a>
+        <a class="navbar-brand" href="/forum/">EasyHelp</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,20 +33,20 @@
           <ul class="navbar-nav ml-auto">
              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Other Pages
+                Types of Services 
                 </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="jjjjjjjjjjjjjjjjjjjjjjjj">Accounting</a>
-                <a class="dropdown-item" href="sidebar.html">Consulting</a>
-                <a class="dropdown-item" href="faq.html">Legal</a>
-                <a class="dropdown-item" href="404.html">Tax</a>
-                <a class="dropdown-item" href="pricing.html">Marketing</a>
-                <a class="dropdown-item" href="full-width.html">Web Designing</a>
-                <a class="dropdown-item" href="sidebar.html">Writing and Translation</a>
-                <a class="dropdown-item" href="faq.html">Design and Multipedia</a>
-                <a class="dropdown-item" href="404.html">Home Decor</a>
-                <a class="dropdown-item" href="pricing.html">Event Planner</a>
-                <a class="dropdown-item" href="">Other</a>
+                <a class="dropdown-item" href="/filterqn/1">Accounting</a>
+                <a class="dropdown-item" href="/filterqn/2">Consulting</a>
+                <a class="dropdown-item" href="/filterqn/3">Legal</a>
+                <a class="dropdown-item" href="/filterqn/4">Tax</a>
+                <a class="dropdown-item" href="/filterqn/5">Marketing</a>
+                <a class="dropdown-item" href="/filterqn/6">Web Designing</a>
+                <a class="dropdown-item" href="/filterqn/7">Writing and Translation</a>
+                <a class="dropdown-item" href="/filterqn/8">Design and Multipedia</a>
+                <a class="dropdown-item" href="/filterqn/9">Home Decor</a>
+                <a class="dropdown-item" href="/filterqn/10">Event Planner</a>
+                <a class="dropdown-item" href="/filterqn/11">Other</a>
               </div>
             </li>
             <li class="nav-item">
@@ -67,8 +67,9 @@
     <div class="container">
 
       <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">Forum
+      <h1 class="mt-4 mb-3">Forum {{filter}}
       </h1>
+
 
       <div class="row">
           {% for qstn in qstns %}
@@ -81,7 +82,7 @@
                   <p class="card-text">{{qstn.question}}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="#">Answers</a>
+                    <a href="/getanswers/id={{qstn.qstnid}}">Answers</a>
                 </div>
               </div>
             </div>

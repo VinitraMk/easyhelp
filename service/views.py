@@ -59,7 +59,7 @@ class ServiceInfo(View):
                 'description':singser.description,'seraddr':singser.seraddr,'servicemail':singser.servicemail,
                 'servicephone':singser.servicephone,'websiteurl':singser.websiteurl,
                 'serviceid':data}
-        request.session.set_expiry(3600)
+        request.session.set_expiry(7200)
         request.session['serupd']=True
         request.session['serid']=data
         request.session['ownerid']=singser.owneremail
