@@ -8,7 +8,7 @@ python_version = "3.5"
 
 [packages]
 pipenv = "==2018.5.18"
-Django = "==2.0.6"
+Django = "==2.2.13"
 requests = "*"
 gunicorn = "==19.8.1"
 passlib = "==1.7.1"
